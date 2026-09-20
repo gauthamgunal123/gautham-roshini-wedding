@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +9,8 @@
 </head>
 
 <body>
+
+  <!-- Hero Section -->
   <main class="hero">
     <p class="eyebrow">Together with our families</p>
 
@@ -25,5 +28,151 @@
       With love, we invite you to celebrate our special day with us.
     </p>
   </main>
+
+  <!-- Wedding Details -->
+  <section class="details">
+    <p class="eyebrow">Save the date</p>
+
+    <h2>Our Wedding Day</h2>
+
+    <p class="date">20 November 2026</p>
+
+    <p>A beautiful beginning to our forever.</p>
+
+    <div class="detail-grid">
+      <div class="detail-card">
+        <h3>💍 Ceremony</h3>
+        <p>Valli Thirumanam</p>
+        <p>20 November 2026</p>
+      </div>
+
+      <div class="detail-card">
+        <h3>📍 Wedding</h3>
+        <p>Madurai</p>
+        <p>Venue details coming soon</p>
+      </div>
+
+      <div class="detail-card">
+        <h3>🎉 Reception</h3>
+        <p>Bangalore</p>
+        <p>Details coming soon</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Countdown Section -->
+  <section class="countdown-section">
+    <p class="eyebrow">The big day is approaching</p>
+
+    <h2>Counting Down to Forever</h2>
+
+    <div class="countdown" id="countdown">
+      <div class="countdown-box">
+        <span id="days">0</span>
+        <small>Days</small>
+      </div>
+
+      <div class="countdown-box">
+        <span id="hours">0</span>
+        <small>Hours</small>
+      </div>
+
+      <div class="countdown-box">
+        <span id="minutes">0</span>
+        <small>Minutes</small>
+      </div>
+
+      <div class="countdown-box">
+        <span id="seconds">0</span>
+        <small>Seconds</small>
+      </div>
+    </div>
+  </section>
+
+  <!-- Story Section -->
+  <section class="story">
+    <p class="eyebrow">Our journey</p>
+
+    <h2>From a moment to forever</h2>
+
+    <p>
+      Every love story is beautiful, but ours is our favourite.
+      We are excited to begin this new chapter together,
+      surrounded by the people we love.
+    </p>
+  </section>
+
+  <!-- Location Section -->
+  <section class="location">
+    <p class="eyebrow">Join us</p>
+
+    <h2>Celebrate With Us</h2>
+
+    <div class="location-card">
+      <div class="location-icon">⌖</div>
+
+      <h3>Wedding Ceremony</h3>
+
+      <p class="location-name">Madurai, Tamil Nadu</p>
+
+      <p class="location-note">
+        The complete venue address will be shared soon.
+      </p>
+
+      <a
+        class="map-button"
+        href="https://www.google.com/maps/search/?api=1&query=Madurai%2C%20Tamil%20Nadu"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        View on Google Maps
+      </a>
+    </div>
+
+    <p class="location-closing">
+      Your presence will make our celebration even more special.
+    </p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>With love, Gautham & Roshini 🤍</p>
+  </footer>
+
+  <!-- Countdown Script -->
+  <script>
+    const weddingDate = new Date("November 20, 2026 09:00:00").getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const difference = weddingDate - now;
+
+      if (difference <= 0) {
+        document.getElementById("countdown").innerHTML =
+          "<h3>Our special day has arrived! 🤍</h3>";
+        return;
+      }
+
+      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+      const hours = Math.floor(
+        (difference / (1000 * 60 * 60)) % 24
+      );
+      const minutes = Math.floor(
+        (difference / (1000 * 60)) % 60
+      );
+      const seconds = Math.floor(
+        (difference / 1000) % 60
+      );
+
+      document.getElementById("days").textContent = days;
+      document.getElementById("hours").textContent = hours;
+      document.getElementById("minutes").textContent = minutes;
+      document.getElementById("seconds").textContent = seconds;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+
 </body>
 </html>
