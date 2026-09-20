@@ -502,7 +502,15 @@ const openInvitationButton = document.getElementById("open-invitation");
 
 if (invitationIntro && envelope && openInvitationButton) {
   openInvitationButton.addEventListener("click", function () {
-    envelope.classList.add("is-open");
+  const weddingMusic = document.getElementById("wedding-music");
+
+  if (weddingMusic) {
+    weddingMusic.play().catch(function (error) {
+      console.log("Music could not start:", error);
+    });
+  }
+
+  envelope.classList.add("is-open");
 
     setTimeout(function () {
       invitationIntro.classList.add("is-opening");
