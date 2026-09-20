@@ -873,3 +873,45 @@ footer {
     right: 12px;
   }
 }
+/* =========================================
+   PREMIUM SCROLL TYPOGRAPHY ANIMATION
+========================================= */
+
+.scroll-text {
+  opacity: 0;
+  transform: translateY(55px) scale(0.97);
+  filter: blur(5px);
+  transition:
+    opacity 0.9s ease,
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.9s ease;
+}
+
+.scroll-text.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
+/* Elegant stagger effect */
+.scroll-text:nth-child(2) {
+  transition-delay: 0.12s;
+}
+
+.scroll-text:nth-child(3) {
+  transition-delay: 0.24s;
+}
+
+.scroll-text:nth-child(4) {
+  transition-delay: 0.36s;
+}
+
+/* Respect accessibility preferences */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-text {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+  }
+}
