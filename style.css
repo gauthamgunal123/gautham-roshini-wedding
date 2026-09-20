@@ -1056,3 +1056,10 @@ footer {
     display: none;
   }
 }
+.navbar,
+main,
+section,
+footer {
+  position: relative;
+  z-index: 2;
+}
