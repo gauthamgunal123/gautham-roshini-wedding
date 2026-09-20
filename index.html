@@ -18,9 +18,9 @@
 
     <div class="nav-links">
       <a href="#home">Home</a>
+      <a href="#invitation" id="invitation-nav">Invitation</a>
       <a href="#madurai">Madurai</a>
-      <a href="#wedding-countdown">Wedding</a>
-      <a href="#reception">Reception</a>
+      <a href="#bangalore">Bangalore</a>
       <a href="#story">Our Story</a>
     </div>
   </nav>
@@ -33,19 +33,41 @@
 
     <p class="subtitle">Two hearts · One beautiful journey</p>
 
-    <div class="image-frame">
-      <img
-        class="invitation"
-        src="assets/invitation.jpeg"
-        alt="Gautham and Roshini wedding invitation"
-      >
-      <div class="image-shine"></div>
-    </div>
+    <!-- Clickable Invitation -->
+    <button class="invitation-trigger" id="invitation-trigger" type="button">
+      <div class="image-frame">
+        <img
+          class="invitation"
+          src="assets/invitation.jpeg"
+          alt="Gautham and Roshini wedding invitation"
+        >
+        <div class="image-shine"></div>
+      </div>
+      <span class="invitation-hint">Click to view invitation</span>
+    </button>
 
     <p class="message">
       With love, we invite you to celebrate the beginning of our forever.
     </p>
   </main>
+
+  <!-- Invitation Lightbox -->
+  <div class="invitation-modal" id="invitation-modal" hidden>
+    <button
+      class="modal-close"
+      id="modal-close"
+      type="button"
+      aria-label="Close invitation"
+    >
+      &times;
+    </button>
+
+    <img
+      src="assets/invitation.jpeg"
+      alt="Gautham and Roshini wedding invitation enlarged"
+      class="modal-image"
+    >
+  </div>
 
   <!-- Madurai Celebrations -->
   <section class="event-section" id="madurai">
@@ -57,7 +79,8 @@
       Two beautiful moments, one special place, and a lifetime of memories.
     </p>
 
-    <div class="event-timeline">
+    <!-- Engagement and Wedding Side by Side -->
+    <div class="madurai-events">
 
       <article class="event-card reveal">
         <span class="event-number">01</span>
@@ -68,8 +91,6 @@
           A beautiful promise before the beginning of our forever.
         </p>
       </article>
-
-      <div class="timeline-line"></div>
 
       <article class="event-card reveal">
         <span class="event-number">02</span>
@@ -83,13 +104,16 @@
 
     </div>
 
+    <!-- Madurai Venue Below the Events -->
     <div class="location-card reveal">
       <div class="location-icon">⌖</div>
-      <h3>Our Madurai Venue</h3>
+      <h3>Madurai Venue</h3>
       <p class="venue">GT Palace, Thiruppalai, Madurai</p>
+
       <p class="location-note">
         Madurai location QR code will be added soon.
       </p>
+
       <a
         class="map-button"
         href="https://www.google.com/maps/search/?api=1&query=GT%20Palace%20Thiruppalai%20Madurai"
@@ -116,14 +140,17 @@
         <span id="wedding-days">0</span>
         <small>Days</small>
       </div>
+
       <div class="countdown-box">
         <span id="wedding-hours">0</span>
         <small>Hours</small>
       </div>
+
       <div class="countdown-box">
         <span id="wedding-minutes">0</span>
         <small>Minutes</small>
       </div>
+
       <div class="countdown-box">
         <span id="wedding-seconds">0</span>
         <small>Seconds</small>
@@ -132,54 +159,48 @@
 
     <div class="completion-message" id="wedding-complete" hidden>
       <h3>We are Mr. & Mrs. Gautham now. 🤍</h3>
+
       <p>
         Thank you for being part of our wedding and for filling our special
         day with love, laughter, and blessings.
       </p>
+
       <p>
         If you couldn't join us in Madurai, we would be delighted to welcome
-        you to our reception in Bangalore on <strong>14 December 2026</strong>.
-        We look forward to celebrating this beautiful chapter with you.
+        you to our reception in Bangalore on
+        <strong>14 December 2026</strong>.
       </p>
     </div>
   </section>
 
-  <!-- Story -->
-  <section class="story" id="story">
-    <p class="eyebrow">Our journey</p>
-
-    <h2>From a moment to forever</h2>
-
-    <p>
-      Every love story is beautiful, but ours is our favourite.
-      We are grateful to begin this new chapter together, surrounded by
-      the people who mean the most to us.
-    </p>
-  </section>
-
-  <!-- Bangalore Reception -->
-  <section class="event-section reception-section" id="reception">
+  <!-- Bangalore Celebration -->
+  <section class="event-section reception-section" id="bangalore">
     <p class="eyebrow">The celebration continues</p>
 
-    <h2>Bangalore Reception</h2>
+    <h2>Bangalore Celebration</h2>
 
-    <div class="event-card reveal">
+    <!-- Reception Details -->
+    <article class="event-card reveal">
       <span class="event-number">03</span>
       <p class="event-label">Reception</p>
       <h3>14 December 2026</h3>
       <p class="venue">Country Club, Yelahanka, Bangalore</p>
+
       <p>
         Join us as we celebrate our new beginning with everyone we love.
       </p>
-    </div>
+    </article>
 
+    <!-- Bangalore Venue -->
     <div class="location-card reveal">
       <div class="location-icon">⌖</div>
       <h3>Reception Venue</h3>
       <p class="venue">Country Club, Yelahanka, Bangalore</p>
+
       <p class="location-note">
         Bangalore location QR code will be added soon.
       </p>
+
       <a
         class="map-button"
         href="https://www.google.com/maps/search/?api=1&query=Country%20Club%20Yelahanka%20Bangalore"
@@ -206,14 +227,17 @@
         <span id="reception-days">0</span>
         <small>Days</small>
       </div>
+
       <div class="countdown-box">
         <span id="reception-hours">0</span>
         <small>Hours</small>
       </div>
+
       <div class="countdown-box">
         <span id="reception-minutes">0</span>
         <small>Minutes</small>
       </div>
+
       <div class="countdown-box">
         <span id="reception-seconds">0</span>
         <small>Seconds</small>
@@ -222,25 +246,42 @@
 
     <div class="completion-message" id="reception-complete" hidden>
       <h3>Thank you for celebrating with us. ✨</h3>
+
       <p>
         Our hearts are full of gratitude for every blessing, every kind
         word, and every beautiful memory you have shared with us.
       </p>
+
       <p>
         Thank you for being part of our journey. We will cherish your love
         and presence for years to come.
       </p>
+
       <p>With all our love, Gautham & Roshini. 🤍</p>
     </div>
   </section>
 
+  <!-- Our Story -->
+  <section class="story" id="story">
+    <p class="eyebrow">Our journey</p>
+
+    <h2>From a moment to forever</h2>
+
+    <p>
+      Every love story is beautiful, but ours is our favourite.
+      We are grateful to begin this new chapter together, surrounded by
+      the people who mean the most to us.
+    </p>
+  </section>
+
+  <!-- Footer -->
   <footer>
     <p>With love, Gautham & Roshini 🤍</p>
-    <p class="footer-date">19 November · 20 November · 14 December 2026</p>
   </footer>
 
-  <!-- Countdown and Scroll Effects -->
+  <!-- Interactive Features -->
   <script>
+    // Countdown functionality
     function createCountdown(targetDate, prefix, timerId, messageId) {
       const target = new Date(targetDate).getTime();
       const timer = document.getElementById(timerId);
@@ -286,21 +327,69 @@
       "reception-complete"
     );
 
+    // Invitation lightbox
+    const invitationTrigger =
+      document.getElementById("invitation-trigger");
+
+    const invitationNav =
+      document.getElementById("invitation-nav");
+
+    const invitationModal =
+      document.getElementById("invitation-modal");
+
+    const modalClose =
+      document.getElementById("modal-close");
+
+    function openInvitation(event) {
+      if (event) event.preventDefault();
+
+      invitationModal.hidden = false;
+      document.body.classList.add("modal-open");
+    }
+
+    function closeInvitation() {
+      invitationModal.hidden = true;
+      document.body.classList.remove("modal-open");
+    }
+
+    invitationTrigger.addEventListener("click", openInvitation);
+    invitationNav.addEventListener("click", openInvitation);
+    modalClose.addEventListener("click", closeInvitation);
+
+    invitationModal.addEventListener("click", function (event) {
+      if (event.target === invitationModal) {
+        closeInvitation();
+      }
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && !invitationModal.hidden) {
+        closeInvitation();
+      }
+    });
+
+    // Scroll-reveal animation
     const revealElements = document.querySelectorAll(".reveal");
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.15 }
-    );
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.15 }
+      );
 
-    revealElements.forEach((element) => observer.observe(element));
+      revealElements.forEach((element) => observer.observe(element));
+    } else {
+      revealElements.forEach((element) => {
+        element.classList.add("visible");
+      });
+    }
   </script>
 
 </body>
