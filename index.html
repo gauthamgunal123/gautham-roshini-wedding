@@ -4,104 +4,147 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gautham & Roshini | Wedding</title>
+
+  <title>Gautham & Roshini | Our Wedding</title>
+
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  
-<nav class="navbar">
-  <a href="#home" class="brand">G & R</a>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <a href="#home" class="brand">G & R</a>
 
-  <div class="nav-links">
-    <a href="#home">Home</a>
-    <a href="#details">Details</a>
-    <a href="#countdown-section">Countdown</a>
-    <a href="#story">Our Story</a>
-    <a href="#location">Location</a>
-  </div>
-</nav>
-  <!-- Hero Section -->
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#madurai">Madurai</a>
+      <a href="#wedding-countdown">Wedding</a>
+      <a href="#reception">Reception</a>
+      <a href="#story">Our Story</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
   <main class="hero" id="home">
     <p class="eyebrow">Together with our families</p>
 
-    <h1>Gautham & Roshini</h1>
+    <h1>Gautham <span>&</span> Roshini</h1>
 
     <p class="subtitle">Two hearts · One beautiful journey</p>
 
-    <img
-      class="invitation"
-      src="assets/invitation.jpeg"
-      alt="Gautham and Roshini wedding invitation"
-    >
+    <div class="image-frame">
+      <img
+        class="invitation"
+        src="assets/invitation.jpeg"
+        alt="Gautham and Roshini wedding invitation"
+      >
+      <div class="image-shine"></div>
+    </div>
 
     <p class="message">
-      With love, we invite you to celebrate our special day with us.
+      With love, we invite you to celebrate the beginning of our forever.
     </p>
   </main>
 
-  <!-- Wedding Details -->
-  <section class="details" id="details">
-    <p class="eyebrow">Save the date</p>
+  <!-- Madurai Celebrations -->
+  <section class="event-section" id="madurai">
+    <p class="eyebrow">Our first celebration</p>
 
-    <h2>Our Wedding Day</h2>
+    <h2>Madurai Celebrations</h2>
 
-    <p class="date">20 November 2026</p>
+    <p class="section-intro">
+      Two beautiful moments, one special place, and a lifetime of memories.
+    </p>
 
-    <p>A beautiful beginning to our forever.</p>
+    <div class="event-timeline">
 
-    <div class="detail-grid">
-      <div class="detail-card">
-        <h3>💍 Ceremony</h3>
-        <p>Valli Thirumanam</p>
-        <p>20 November 2026</p>
-      </div>
+      <article class="event-card reveal">
+        <span class="event-number">01</span>
+        <p class="event-label">Engagement Ceremony</p>
+        <h3>19 November 2026</h3>
+        <p class="venue">GT Palace, Thiruppalai, Madurai</p>
+        <p>
+          A beautiful promise before the beginning of our forever.
+        </p>
+      </article>
 
-      <div class="detail-card">
-        <h3>📍 Wedding</h3>
-        <p>Madurai</p>
-        <p>Venue details coming soon</p>
-      </div>
+      <div class="timeline-line"></div>
 
-      <div class="detail-card">
-        <h3>🎉 Reception</h3>
-        <p>Bangalore</p>
-        <p>Details coming soon</p>
-      </div>
+      <article class="event-card reveal">
+        <span class="event-number">02</span>
+        <p class="event-label">Wedding</p>
+        <h3>20 November 2026</h3>
+        <p class="venue">GT Palace, Thiruppalai, Madurai</p>
+        <p>
+          The day two hearts become one, surrounded by love and blessings.
+        </p>
+      </article>
+
+    </div>
+
+    <div class="location-card reveal">
+      <div class="location-icon">⌖</div>
+      <h3>Our Madurai Venue</h3>
+      <p class="venue">GT Palace, Thiruppalai, Madurai</p>
+      <p class="location-note">
+        Madurai location QR code will be added soon.
+      </p>
+      <a
+        class="map-button"
+        href="https://www.google.com/maps/search/?api=1&query=GT%20Palace%20Thiruppalai%20Madurai"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        View Venue on Maps
+      </a>
     </div>
   </section>
 
-  <!-- Countdown Section -->
-  <section class="countdown-section" id="countdown-section">
-    <p class="eyebrow">The big day is approaching</p>
+  <!-- Wedding Countdown -->
+  <section class="countdown-section" id="wedding-countdown">
+    <p class="eyebrow">The sacred beginning</p>
 
-    <h2>Counting Down to Forever</h2>
+    <h2>Counting Down to Our Wedding</h2>
 
-    <div class="countdown" id="countdown">
+    <p class="section-intro">
+      Every second brings us closer to our forever.
+    </p>
+
+    <div class="countdown" id="wedding-timer">
       <div class="countdown-box">
-        <span id="days">0</span>
+        <span id="wedding-days">0</span>
         <small>Days</small>
       </div>
-
       <div class="countdown-box">
-        <span id="hours">0</span>
+        <span id="wedding-hours">0</span>
         <small>Hours</small>
       </div>
-
       <div class="countdown-box">
-        <span id="minutes">0</span>
+        <span id="wedding-minutes">0</span>
         <small>Minutes</small>
       </div>
-
       <div class="countdown-box">
-        <span id="seconds">0</span>
+        <span id="wedding-seconds">0</span>
         <small>Seconds</small>
       </div>
     </div>
+
+    <div class="completion-message" id="wedding-complete" hidden>
+      <h3>We are Mr. & Mrs. Gautham now. 🤍</h3>
+      <p>
+        Thank you for being part of our wedding and for filling our special
+        day with love, laughter, and blessings.
+      </p>
+      <p>
+        If you couldn't join us in Madurai, we would be delighted to welcome
+        you to our reception in Bangalore on <strong>14 December 2026</strong>.
+        We look forward to celebrating this beautiful chapter with you.
+      </p>
+    </div>
   </section>
 
-  <!-- Story Section -->
+  <!-- Story -->
   <section class="story" id="story">
     <p class="eyebrow">Our journey</p>
 
@@ -109,81 +152,155 @@
 
     <p>
       Every love story is beautiful, but ours is our favourite.
-      We are excited to begin this new chapter together,
-      surrounded by the people we love.
+      We are grateful to begin this new chapter together, surrounded by
+      the people who mean the most to us.
     </p>
   </section>
 
-  <!-- Location Section -->
-  <section class="location" id="location">
-    <p class="eyebrow">Join us</p>
+  <!-- Bangalore Reception -->
+  <section class="event-section reception-section" id="reception">
+    <p class="eyebrow">The celebration continues</p>
 
-    <h2>Celebrate With Us</h2>
+    <h2>Bangalore Reception</h2>
 
-    <div class="location-card">
-      <div class="location-icon">⌖</div>
-
-      <h3>Wedding Ceremony</h3>
-
-      <p class="location-name">Madurai, Tamil Nadu</p>
-
-      <p class="location-note">
-        The complete venue address will be shared soon.
+    <div class="event-card reveal">
+      <span class="event-number">03</span>
+      <p class="event-label">Reception</p>
+      <h3>14 December 2026</h3>
+      <p class="venue">Country Club, Yelahanka, Bangalore</p>
+      <p>
+        Join us as we celebrate our new beginning with everyone we love.
       </p>
+    </div>
 
+    <div class="location-card reveal">
+      <div class="location-icon">⌖</div>
+      <h3>Reception Venue</h3>
+      <p class="venue">Country Club, Yelahanka, Bangalore</p>
+      <p class="location-note">
+        Bangalore location QR code will be added soon.
+      </p>
       <a
         class="map-button"
-        href="https://www.google.com/maps/search/?api=1&query=Madurai%2C%20Tamil%20Nadu"
+        href="https://www.google.com/maps/search/?api=1&query=Country%20Club%20Yelahanka%20Bangalore"
         target="_blank"
         rel="noopener noreferrer"
       >
-        View on Google Maps
+        View Venue on Maps
       </a>
     </div>
-
-    <p class="location-closing">
-      Your presence will make our celebration even more special.
-    </p>
   </section>
 
-  <!-- Footer -->
+  <!-- Reception Countdown -->
+  <section class="countdown-section" id="reception-countdown">
+    <p class="eyebrow">One more beautiful celebration</p>
+
+    <h2>Counting Down to Our Reception</h2>
+
+    <p class="section-intro">
+      The celebration continues, and we can't wait to see you there.
+    </p>
+
+    <div class="countdown" id="reception-timer">
+      <div class="countdown-box">
+        <span id="reception-days">0</span>
+        <small>Days</small>
+      </div>
+      <div class="countdown-box">
+        <span id="reception-hours">0</span>
+        <small>Hours</small>
+      </div>
+      <div class="countdown-box">
+        <span id="reception-minutes">0</span>
+        <small>Minutes</small>
+      </div>
+      <div class="countdown-box">
+        <span id="reception-seconds">0</span>
+        <small>Seconds</small>
+      </div>
+    </div>
+
+    <div class="completion-message" id="reception-complete" hidden>
+      <h3>Thank you for celebrating with us. ✨</h3>
+      <p>
+        Our hearts are full of gratitude for every blessing, every kind
+        word, and every beautiful memory you have shared with us.
+      </p>
+      <p>
+        Thank you for being part of our journey. We will cherish your love
+        and presence for years to come.
+      </p>
+      <p>With all our love, Gautham & Roshini. 🤍</p>
+    </div>
+  </section>
+
   <footer>
     <p>With love, Gautham & Roshini 🤍</p>
+    <p class="footer-date">19 November · 20 November · 14 December 2026</p>
   </footer>
 
-  <!-- Countdown Script -->
+  <!-- Countdown and Scroll Effects -->
   <script>
-    const weddingDate = new Date("November 20, 2026 09:00:00").getTime();
+    function createCountdown(targetDate, prefix, timerId, messageId) {
+      const target = new Date(targetDate).getTime();
+      const timer = document.getElementById(timerId);
+      const message = document.getElementById(messageId);
 
-    function updateCountdown() {
-      const now = new Date().getTime();
-      const difference = weddingDate - now;
+      function update() {
+        const difference = target - Date.now();
 
-      if (difference <= 0) {
-        document.getElementById("countdown").innerHTML =
-          "<h3>Our special day has arrived! 🤍</h3>";
-        return;
+        if (difference <= 0) {
+          timer.hidden = true;
+          message.hidden = false;
+          return;
+        }
+
+        document.getElementById(prefix + "-days").textContent =
+          Math.floor(difference / 86400000);
+
+        document.getElementById(prefix + "-hours").textContent =
+          Math.floor((difference / 3600000) % 24);
+
+        document.getElementById(prefix + "-minutes").textContent =
+          Math.floor((difference / 60000) % 60);
+
+        document.getElementById(prefix + "-seconds").textContent =
+          Math.floor((difference / 1000) % 60);
       }
 
-      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-      const hours = Math.floor(
-        (difference / (1000 * 60 * 60)) % 24
-      );
-      const minutes = Math.floor(
-        (difference / (1000 * 60)) % 60
-      );
-      const seconds = Math.floor(
-        (difference / 1000) % 60
-      );
-
-      document.getElementById("days").textContent = days;
-      document.getElementById("hours").textContent = hours;
-      document.getElementById("minutes").textContent = minutes;
-      document.getElementById("seconds").textContent = seconds;
+      update();
+      setInterval(update, 1000);
     }
 
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
+    createCountdown(
+      "November 20, 2026 09:00:00",
+      "wedding",
+      "wedding-timer",
+      "wedding-complete"
+    );
+
+    createCountdown(
+      "December 14, 2026 18:00:00",
+      "reception",
+      "reception-timer",
+      "reception-complete"
+    );
+
+    const revealElements = document.querySelectorAll(".reveal");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    revealElements.forEach((element) => observer.observe(element));
   </script>
 
 </body>
