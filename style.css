@@ -1,9 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@400;500;600&display=swap');
 
 :root {
-  --navy: #071b3a;
-  --gold: #d8b56d;
+  --navy: #06152f;
+  --navy-light: #0d2549;
+  --gold: #d9b66f;
+  --gold-light: #f4dfaa;
   --cream: #fffaf0;
+  --muted: #c7cddd;
 }
 
 * {
@@ -12,12 +16,27 @@
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  min-height: 100vh;
-  background: var(--navy);
+  background:
+    radial-gradient(circle at top, #17345b 0%, transparent 45%),
+    var(--navy);
   color: var(--cream);
   font-family: 'Montserrat', sans-serif;
+  line-height: 1.7;
   text-align: center;
+}
+
+.hero,
+.details,
+.story,
+.location {
+  padding: 90px 20px;
+  position: relative;
+  overflow: hidden;
 }
 
 .hero {
@@ -26,57 +45,173 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 30px 18px;
+}
+
+.hero::before,
+.details::before,
+.story::before,
+.location::before {
+  content: '✦';
+  position: absolute;
+  top: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--gold);
+  font-size: 1.3rem;
+  opacity: 0.8;
 }
 
 .eyebrow {
   color: var(--gold);
-  font-size: 0.8rem;
+  font-size: 0.75rem;
+  font-weight: 600;
   letter-spacing: 4px;
   text-transform: uppercase;
   margin-bottom: 20px;
 }
 
-h1 {
-  color: var(--gold);
+h1,
+h2,
+h3 {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(3rem, 10vw, 6rem);
+  font-weight: 600;
+}
+
+h1 {
+  color: var(--gold-light);
+  font-size: clamp(3.5rem, 10vw, 7rem);
   line-height: 1;
-  margin-bottom: 18px;
+  text-shadow: 0 0 30px rgba(217, 182, 111, 0.15);
+}
+
+h2 {
+  color: var(--gold-light);
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  line-height: 1.15;
+  margin-bottom: 22px;
+}
+
+h3 {
+  color: var(--gold-light);
+  font-size: 1.8rem;
+  margin-bottom: 12px;
 }
 
 .subtitle {
-  font-size: 1rem;
-  letter-spacing: 1px;
-  margin-bottom: 28px;
+  color: var(--muted);
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  margin: 25px 0 35px;
 }
 
 .invitation {
+  display: block;
   width: min(100%, 480px);
-  border: 2px solid var(--gold);
-  border-radius: 14px;
-  box-shadow: 0 0 35px rgba(216, 181, 109, 0.2);
+  height: auto;
+  border: 1px solid var(--gold);
+  border-radius: 12px;
+  box-shadow:
+    0 0 0 8px rgba(217, 182, 111, 0.04),
+    0 20px 70px rgba(0, 0, 0, 0.4);
 }
 
 .message {
-  max-width: 550px;
-  margin-top: 28px;
+  max-width: 560px;
+  margin-top: 30px;
+  color: var(--muted);
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.5rem;
+  font-size: 1.65rem;
   line-height: 1.5;
 }
 
-@media (max-width: 600px) {
-  .hero {
-    padding: 24px 14px;
+.details,
+.story,
+.location {
+  border-top: 1px solid rgba(217, 182, 111, 0.25);
+  background: linear-gradient(
+    180deg,
+    rgba(13, 37, 73, 0.7),
+    rgba(6, 21, 47, 0.3)
+  );
+}
+
+.date {
+  color: var(--gold-light);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  margin: 20px 0;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  max-width: 1050px;
+  margin: 50px auto 0;
+}
+
+.detail-card {
+  padding: 35px 22px;
+  border: 1px solid rgba(217, 182, 111, 0.4);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.detail-card:hover {
+  transform: translateY(-6px);
+  background: rgba(217, 182, 111, 0.08);
+}
+
+.detail-card p {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.story p,
+.location p {
+  max-width: 680px;
+  margin: 0 auto;
+  color: var(--muted);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.55rem;
+  line-height: 1.6;
+}
+
+footer {
+  padding: 35px 20px;
+  border-top: 1px solid rgba(217, 182, 111, 0.25);
+  color: var(--gold);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  background: #041027;
+}
+
+@media (max-width: 760px) {
+  .hero,
+  .details,
+  .story,
+  .location {
+    padding: 75px 18px;
+  }
+
+  .detail-grid {
+    grid-template-columns: 1fr;
+    max-width: 430px;
+  }
+
+  h1 {
+    font-size: clamp(3rem, 15vw, 5rem);
+  }
+
+  .message,
+  .story p,
+  .location p {
+    font-size: 1.35rem;
   }
 
   .eyebrow {
-    font-size: 0.65rem;
-    letter-spacing: 2px;
-  }
-
-  .message {
-    font-size: 1.3rem;
+    letter-spacing: 2.5px;
   }
 }
