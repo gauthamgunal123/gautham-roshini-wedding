@@ -1199,3 +1199,30 @@ footer {
     animation: none;
   }
 }
+/* Cinematic gold glow */
+.hero h1 {
+  text-shadow:
+    0 0 8px rgba(212, 175, 55, 0.25),
+    0 0 22px rgba(212, 175, 55, 0.15);
+  animation: goldGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes goldGlow {
+  from {
+    text-shadow:
+      0 0 8px rgba(212, 175, 55, 0.2),
+      0 0 18px rgba(212, 175, 55, 0.1);
+  }
+
+  to {
+    text-shadow:
+      0 0 14px rgba(212, 175, 55, 0.55),
+      0 0 35px rgba(212, 175, 55, 0.25);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero h1 {
+    animation: none;
+  }
+}
