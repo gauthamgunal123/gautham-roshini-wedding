@@ -474,9 +474,9 @@ h3 {
   text-transform: uppercase;
 }
 
-/* ================================
-   Invitation Lightbox
-================================ */
+/* =========================================
+   INVITATION POP-OUT ZOOM EFFECT
+========================================= */
 
 .invitation-modal {
   position: fixed;
@@ -485,9 +485,11 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 24px;
-  background: rgba(5, 10, 25, 0.95);
-  backdrop-filter: blur(10px);
+  padding: 20px;
+  background: rgba(5, 10, 25, 0.96);
+  backdrop-filter: blur(14px);
+  perspective: 1200px;
+  opacity: 1;
 }
 
 .invitation-modal[hidden] {
@@ -497,51 +499,63 @@ h3 {
 .modal-image {
   display: block;
   width: auto;
-  max-width: min(100%, 900px);
-  max-height: 90vh;
+  max-width: min(92vw, 900px);
+  max-height: 88vh;
   height: auto;
   object-fit: contain;
-  border-radius: 12px;
-  box-shadow: 0 20px 80px rgba(0, 0, 0, 0.5);
-  animation: invitationOpen 0.3s ease-out;
+  border-radius: 14px;
+
+  box-shadow:
+    0 35px 100px rgba(0, 0, 0, 0.65),
+    0 0 45px rgba(212, 175, 55, 0.18);
+
+  transform-origin: center center;
+  animation: invitationPopOut 0.85s cubic-bezier(0.16, 1, 0.3, 1)
+    forwards;
 }
 
-.modal-close {
-  position: absolute;
-  top: 20px;
-  right: 24px;
-  z-index: 2;
-  width: 44px;
-  height: 44px;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  border-radius: 50%;
-  background: rgba(0, 0, 0, 0.35);
-  color: white;
-  font-size: 2rem;
-  line-height: 1;
-  cursor: pointer;
+@keyframes invitationPopOut {
+  0% {
+    opacity: 0;
+    transform: translateY(90px) scale(0.35) rotateX(12deg);
+    filter: blur(12px);
+  }
+
+  55% {
+    opacity: 1;
+    transform: translateY(-12px) scale(1.04) rotateX(-2deg);
+    filter: blur(0);
+  }
+
+  78% {
+    transform: translateY(4px) scale(0.98) rotateX(0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotateX(0);
+    filter: blur(0);
+  }
 }
 
-.modal-close:hover {
-  background: rgba(255, 255, 255, 0.15);
+/* Subtle movement while the invitation is open */
+.invitation-modal:not([hidden]) .modal-image:hover {
+  transform: scale(1.015);
+  transition: transform 0.35s ease;
 }
 
 body.modal-open {
   overflow: hidden;
 }
 
-@keyframes invitationOpen {
-  from {
-    opacity: 0;
-    transform: scale(0.94);
-  }
-
-  to {
+@media (prefers-reduced-motion: reduce) {
+  .modal-image {
+    animation: none;
     opacity: 1;
-    transform: scale(1);
+    transform: none;
+    filter: none;
   }
 }
-
 /* ================================
    Madurai Celebration
 ================================ */
