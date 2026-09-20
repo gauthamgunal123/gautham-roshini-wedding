@@ -502,7 +502,36 @@ const textObserver = new IntersectionObserver(
 scrollTextElements.forEach((element) => {
   textObserver.observe(element);
 });
-    
+/* =========================================
+   SCROLL PARALLAX EFFECT
+========================================= */
+
+const prefersReducedMotion = window.matchMedia(
+  "(prefers-reduced-motion: reduce)"
+).matches;
+
+if (!prefersReducedMotion) {
+  const hero = document.querySelector(".hero");
+  const particles = document.querySelector(".gold-particles");
+
+  window.addEventListener(
+    "scroll",
+    function () {
+      const scrollPosition = window.scrollY;
+
+      if (hero) {
+        hero.style.transform =
+          `translateY(${scrollPosition * 0.035}px)`;
+      }
+
+      if (particles) {
+        particles.style.transform =
+          `translateY(${scrollPosition * 0.08}px)`;
+      }
+    },
+    { passive: true }
+  );
+}
   </script>
 
 </body>
