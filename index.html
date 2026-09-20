@@ -581,6 +581,49 @@ if (entry.isIntersecting) {
 } else {
   entry.target.classList.remove("visible");
 }
+
+const weddingMusic = document.getElementById("wedding-music");
+const musicToggle = document.getElementById("music-toggle");
+
+let musicPlaying = false;
+
+function updateMusicButton() {
+  musicToggle.classList.toggle("is-playing", musicPlaying);
+  musicToggle.textContent = musicPlaying ? "♫" : "♪";
+  musicToggle.setAttribute(
+    "aria-label",
+    musicPlaying ? "Pause wedding music" : "Play wedding music"
+  );
+  musicToggle.setAttribute("aria-pressed", String(musicPlaying));
+}
+
+function startWeddingMusic() {
+  weddingMusic.play()
+    .then(() => {
+      musicPlaying = true;
+      updateMusicButton();
+    })
+    .catch(() => {
+      musicPlaying = false;
+      updateMusicButton();
+    });
+}
+
+function toggleWeddingMusic() {
+  if (weddingMusic.paused) {
+    startWeddingMusic();
+  } else {
+    weddingMusic.pause();
+    musicPlaying = false;
+    updateMusicButton();
+  }
+}
+
+musicToggle.addEventListener("click", toggleWeddingMusic);
+
+openInvitationButton.addEventListener("click", function () {
+  startWeddingMusic();
+});
   </script>
 
 </body>
