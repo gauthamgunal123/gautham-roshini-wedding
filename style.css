@@ -1063,3 +1063,24 @@ footer {
   position: relative;
   z-index: 2;
 }
+/* =========================================
+   SUBTLE SCROLL PARALLAX EFFECT
+========================================= */
+
+.parallax-element {
+  will-change: transform;
+  transition: transform 0.12s linear;
+}
+
+.hero::before {
+  transition: transform 0.15s linear;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .parallax-element,
+  .hero::before {
+    transform: none !important;
+    transition: none;
+  }
+}
