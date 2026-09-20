@@ -1084,3 +1084,67 @@ footer {
     transition: none;
   }
 }
+/* =========================================
+   ANIMATED GOLD SECTION SEPARATORS
+========================================= */
+
+.gold-separator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  width: min(85%, 520px);
+  margin: 30px auto;
+  opacity: 0;
+  transform: scaleX(0.25);
+  transition:
+    opacity 1s ease,
+    transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gold-separator span {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    #d4af37,
+    transparent
+  );
+}
+
+.gold-separator i {
+  color: #d4af37;
+  font-size: 1.1rem;
+  font-style: normal;
+  text-shadow: 0 0 14px rgba(212, 175, 55, 0.45);
+  animation: separatorGlow 2.8s ease-in-out infinite;
+}
+
+.gold-separator.visible {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+@keyframes separatorGlow {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: rotate(0deg) scale(0.9);
+  }
+
+  50% {
+    opacity: 1;
+    transform: rotate(180deg) scale(1.15);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gold-separator,
+  .gold-separator i {
+    animation: none;
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+}
