@@ -18,7 +18,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 90px;
+  scroll-padding-top: 100px;
 }
 
 body {
@@ -33,21 +33,26 @@ body {
   overflow-x: hidden;
 }
 
+/* ================================
+   Navigation
+================================ */
+
 .navbar {
   position: sticky;
   top: 0;
   z-index: 1000;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  gap: 20px;
+  justify-content: space-between;
+  gap: 24px;
   padding: 18px 7%;
-  background: rgba(6, 21, 47, 0.94);
+  background: rgba(6, 21, 47, 0.96);
   border-bottom: 1px solid rgba(217, 182, 111, 0.3);
   backdrop-filter: blur(12px);
 }
 
 .brand {
+  flex-shrink: 0;
   color: var(--gold-light);
   font-family: 'Cormorant Garamond', serif;
   font-size: 1.8rem;
@@ -57,9 +62,10 @@ body {
 
 .nav-links {
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
   justify-content: flex-end;
-  gap: 22px;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .nav-links a {
@@ -67,12 +73,18 @@ body {
   font-size: 0.72rem;
   letter-spacing: 1px;
   text-decoration: none;
+  white-space: nowrap;
   transition: color 0.3s ease;
 }
 
-.nav-links a:hover {
+.nav-links a:hover,
+.nav-links a:focus-visible {
   color: var(--gold-light);
 }
+
+/* ================================
+   Shared Sections
+================================ */
 
 .hero,
 .event-section,
@@ -84,20 +96,31 @@ body {
 }
 
 .hero {
-  min-height: 100vh;
+  min-height: calc(100vh - 85px);
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+}
+
+.event-section,
+.countdown-section,
+.story {
+  border-top: 1px solid rgba(217, 182, 111, 0.25);
+  background: linear-gradient(
+    180deg,
+    rgba(13, 37, 73, 0.65),
+    rgba(6, 21, 47, 0.2)
+  );
 }
 
 .eyebrow {
+  margin-bottom: 20px;
   color: var(--gold);
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 4px;
   text-transform: uppercase;
-  margin-bottom: 20px;
 }
 
 h1,
@@ -118,23 +141,23 @@ h1 span {
 }
 
 h2 {
+  margin-bottom: 22px;
   color: var(--gold-light);
   font-size: clamp(2.3rem, 5vw, 4rem);
   line-height: 1.15;
-  margin-bottom: 22px;
 }
 
 h3 {
+  margin-bottom: 12px;
   color: var(--gold-light);
   font-size: 1.8rem;
-  margin-bottom: 12px;
 }
 
 .subtitle {
+  margin: 25px 0 35px;
   color: var(--muted);
   font-size: 0.85rem;
   letter-spacing: 2px;
-  margin: 25px 0 35px;
 }
 
 .section-intro {
@@ -151,9 +174,24 @@ h3 {
   font-size: 1.65rem;
 }
 
+/* ================================
+   Invitation Image
+================================ */
+
+.invitation-trigger {
+  display: block;
+  width: min(100%, 480px);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: zoom-in;
+}
+
 .image-frame {
   position: relative;
-  width: min(100%, 480px);
+  width: 100%;
   overflow: hidden;
   border: 1px solid var(--gold);
   border-radius: 16px;
@@ -166,16 +204,18 @@ h3 {
 .invitation {
   display: block;
   width: 100%;
+  max-width: 100%;
   height: auto;
   transform: scale(1);
   transition:
-    transform 1.2s cubic-bezier(0.2, 0.7, 0.2, 1),
-    filter 1.2s ease;
+    transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1),
+    filter 0.6s ease;
   will-change: transform;
 }
 
-.image-frame:hover .invitation {
-  transform: scale(1.08);
+.invitation-trigger:hover .invitation,
+.invitation-trigger:focus-visible .invitation {
+  transform: scale(1.05);
   filter: brightness(1.08) saturate(1.08);
 }
 
@@ -190,31 +230,114 @@ h3 {
     transparent 70%
   );
   transform: translateX(-130%);
-  transition: transform 1.2s ease;
+  transition: transform 1s ease;
 }
 
-.image-frame:hover .image-shine {
+.invitation-trigger:hover .image-shine {
   transform: translateX(130%);
 }
 
-.event-section,
-.countdown-section,
-.story {
-  border-top: 1px solid rgba(217, 182, 111, 0.25);
-  background: linear-gradient(
-    180deg,
-    rgba(13, 37, 73, 0.65),
-    rgba(6, 21, 47, 0.2)
-  );
+.invitation-hint {
+  display: block;
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 0.72rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
-.event-timeline {
-  max-width: 850px;
-  margin: 45px auto;
+/* ================================
+   Invitation Lightbox
+================================ */
+
+.invitation-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(5, 10, 25, 0.95);
+  backdrop-filter: blur(10px);
 }
+
+.invitation-modal[hidden] {
+  display: none;
+}
+
+.modal-image {
+  display: block;
+  width: auto;
+  max-width: min(100%, 900px);
+  max-height: 90vh;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 20px 80px rgba(0, 0, 0, 0.5);
+  animation: invitationOpen 0.3s ease-out;
+}
+
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.35);
+  color: white;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.modal-close:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+@keyframes invitationOpen {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ================================
+   Madurai Celebration
+================================ */
+
+.madurai-events {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 24px;
+  width: min(100%, 1000px);
+  margin: 45px auto 0;
+}
+
+.madurai-events .event-card {
+  height: 100%;
+}
+
+/* ================================
+   Event Cards
+================================ */
 
 .event-card {
   position: relative;
+  width: 100%;
   max-width: 650px;
   margin: 0 auto;
   padding: 35px 25px;
@@ -226,10 +349,10 @@ h3 {
 
 .event-number {
   display: inline-block;
+  margin-bottom: 12px;
   color: var(--gold);
   font-size: 0.75rem;
   letter-spacing: 2px;
-  margin-bottom: 12px;
 }
 
 .event-label {
@@ -248,22 +371,18 @@ h3 {
 }
 
 .venue {
+  margin-bottom: 15px;
   color: var(--gold-light);
   font-weight: 600;
-  margin-bottom: 15px;
 }
 
-.timeline-line {
-  width: 1px;
-  height: 55px;
-  margin: 0 auto;
-  background: var(--gold);
-  opacity: 0.6;
-}
+/* ================================
+   Location Cards
+================================ */
 
 .location-card {
-  max-width: 600px;
-  margin: 45px auto 0;
+  width: min(100%, 850px);
+  margin: 35px auto 0;
   padding: 45px 25px;
   border: 1px solid rgba(217, 182, 111, 0.5);
   border-radius: 20px;
@@ -276,9 +395,9 @@ h3 {
 }
 
 .location-icon {
+  margin-bottom: 12px;
   color: var(--gold);
   font-size: 3rem;
-  margin-bottom: 12px;
 }
 
 .location-note {
@@ -299,16 +418,21 @@ h3 {
   transition: all 0.3s ease;
 }
 
-.map-button:hover {
+.map-button:hover,
+.map-button:focus-visible {
   background: var(--gold);
   color: var(--navy);
 }
 
+/* ================================
+   Countdown
+================================ */
+
 .countdown {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 18px;
-  max-width: 760px;
+  width: min(100%, 760px);
   margin: 45px auto 0;
 }
 
@@ -348,13 +472,17 @@ h3 {
 }
 
 .completion-message p {
-  color: var(--muted);
   margin-top: 15px;
+  color: var(--muted);
 }
 
 .completion-message strong {
   color: var(--gold-light);
 }
+
+/* ================================
+   Bangalore Celebration
+================================ */
 
 .reception-section {
   background: linear-gradient(
@@ -364,6 +492,15 @@ h3 {
   );
 }
 
+.reception-section > .event-card {
+  width: min(100%, 850px);
+  max-width: 850px;
+}
+
+/* ================================
+   Our Story
+================================ */
+
 .story p {
   max-width: 700px;
   margin: 0 auto;
@@ -372,6 +509,10 @@ h3 {
   font-size: 1.55rem;
   line-height: 1.6;
 }
+
+/* ================================
+   Scroll Reveal
+================================ */
 
 .reveal {
   opacity: 0;
@@ -386,6 +527,10 @@ h3 {
   transform: translateY(0);
 }
 
+/* ================================
+   Footer
+================================ */
+
 footer {
   padding: 35px 20px;
   border-top: 1px solid rgba(217, 182, 111, 0.25);
@@ -395,15 +540,10 @@ footer {
   background: #041027;
 }
 
-.footer-date {
-  margin-top: 8px;
-  color: var(--muted);
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.65rem;
-  letter-spacing: 1px;
-}
+/* ================================
+   Accessibility
+================================ */
 
-/* Accessibility: reduce animation when requested */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -419,17 +559,21 @@ footer {
   }
 }
 
-/* Mobile layout */
-@media (max-width: 650px) {
+/* ================================
+   Responsive Mobile Layout
+================================ */
+
+@media (max-width: 700px) {
   .navbar {
+    align-items: center;
     flex-direction: column;
     padding: 14px 10px;
-    gap: 8px;
+    gap: 10px;
   }
 
   .nav-links {
     justify-content: center;
-    gap: 12px;
+    gap: 12px 16px;
   }
 
   .nav-links a {
@@ -445,6 +589,20 @@ footer {
 
   h1 {
     font-size: clamp(3rem, 15vw, 5rem);
+  }
+
+  .madurai-events {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .event-card {
+    padding: 30px 20px;
+  }
+
+  .invitation-trigger {
+    width: 100%;
+    max-width: 480px;
   }
 
   .countdown {
@@ -471,5 +629,19 @@ footer {
 
   .eyebrow {
     letter-spacing: 2.5px;
+  }
+
+  .invitation-modal {
+    padding: 14px;
+  }
+
+  .modal-image {
+    max-width: 100%;
+    max-height: 82vh;
+  }
+
+  .modal-close {
+    top: 12px;
+    right: 12px;
   }
 }
