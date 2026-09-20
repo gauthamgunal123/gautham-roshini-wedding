@@ -420,6 +420,27 @@
         element.classList.add("visible");
       });
     }
+    
+/* Premium invitation opening */
+
+const invitationIntro = document.getElementById("invitation-intro");
+const envelope = document.getElementById("envelope");
+const openInvitationButton = document.getElementById("open-invitation");
+
+if (invitationIntro && envelope && openInvitationButton) {
+  openInvitationButton.addEventListener("click", function () {
+    envelope.classList.add("is-open");
+
+    setTimeout(function () {
+      invitationIntro.classList.add("is-opening");
+      document.body.classList.remove("modal-open");
+    }, 1200);
+
+    setTimeout(function () {
+      invitationIntro.remove();
+    }, 2300);
+  });
+}
   </script>
 
 </body>
