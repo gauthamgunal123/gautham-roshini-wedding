@@ -371,11 +371,25 @@
       document.getElementById("modal-close");
 
     function openInvitation(event) {
-      if (event) event.preventDefault();
+  if (event) event.preventDefault();
 
-      invitationModal.hidden = false;
-      document.body.classList.add("modal-open");
-    }
+  invitationModal.hidden = false;
+  document.body.classList.add("modal-open");
+
+  // Restart the pop-out animation every time it opens
+  const modalImage = invitationModal.querySelector(".modal-image");
+
+  if (modalImage) {
+    modalImage.style.animation = "none";
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        modalImage.style.animation =
+          "invitationPopOut 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards";
+      });
+    });
+  }
+}
 
     function closeInvitation() {
       invitationModal.hidden = true;
