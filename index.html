@@ -441,6 +441,38 @@ if (invitationIntro && envelope && openInvitationButton) {
     }, 2300);
   });
 }
+  /* =========================================
+   SCROLL TEXT REVEAL ANIMATION
+========================================= */
+
+const scrollTextElements = document.querySelectorAll(
+  "h1, h2, h3, .eyebrow, .subtitle, .section-intro, .message, .venue, .story p"
+);
+
+scrollTextElements.forEach((element) => {
+  element.classList.add("scroll-text");
+});
+
+const textObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      } else {
+        // Reverses the animation when scrolling away
+        entry.target.classList.remove("visible");
+      }
+    });
+  },
+  {
+    threshold: 0.15,
+    rootMargin: "0px 0px -60px 0px"
+  }
+);
+
+scrollTextElements.forEach((element) => {
+  textObserver.observe(element);
+});
     
   </script>
 
