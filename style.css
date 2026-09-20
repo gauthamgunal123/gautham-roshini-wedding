@@ -1,647 +1,227 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@400;500;600&display=swap');
+/* =========================================
+   PREMIUM INVITATION OPENING ANIMATION
+========================================= */
 
-:root {
-  --navy: #06152f;
-  --navy-light: #102d55;
-  --gold: #d9b66f;
-  --gold-light: #f4dfaa;
-  --cream: #fffaf0;
-  --muted: #c7cddd;
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 100px;
-}
-
-body {
-  background:
-    radial-gradient(circle at 15% 10%, #17345b 0%, transparent 30%),
-    radial-gradient(circle at 90% 70%, #10294c 0%, transparent 30%),
-    var(--navy);
-  color: var(--cream);
-  font-family: 'Montserrat', sans-serif;
-  line-height: 1.7;
-  text-align: center;
-  overflow-x: hidden;
-}
-
-/* ================================
-   Navigation
-================================ */
-
-.navbar {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  padding: 18px 7%;
-  background: rgba(6, 21, 47, 0.96);
-  border-bottom: 1px solid rgba(217, 182, 111, 0.3);
-  backdrop-filter: blur(12px);
-}
-
-.brand {
-  flex-shrink: 0;
-  color: var(--gold-light);
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.8rem;
-  font-weight: 700;
-  text-decoration: none;
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.nav-links a {
-  color: var(--muted);
-  font-size: 0.72rem;
-  letter-spacing: 1px;
-  text-decoration: none;
-  white-space: nowrap;
-  transition: color 0.3s ease;
-}
-
-.nav-links a:hover,
-.nav-links a:focus-visible {
-  color: var(--gold-light);
-}
-
-/* ================================
-   Shared Sections
-================================ */
-
-.hero,
-.event-section,
-.countdown-section,
-.story {
-  position: relative;
-  overflow: hidden;
-  padding: 100px 20px;
-}
-
-.hero {
-  min-height: calc(100vh - 85px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.event-section,
-.countdown-section,
-.story {
-  border-top: 1px solid rgba(217, 182, 111, 0.25);
-  background: linear-gradient(
-    180deg,
-    rgba(13, 37, 73, 0.65),
-    rgba(6, 21, 47, 0.2)
-  );
-}
-
-.eyebrow {
-  margin-bottom: 20px;
-  color: var(--gold);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-}
-
-h1,
-h2,
-h3 {
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 600;
-}
-
-h1 {
-  color: var(--gold-light);
-  font-size: clamp(3.2rem, 10vw, 7rem);
-  line-height: 1;
-}
-
-h1 span {
-  color: var(--gold);
-}
-
-h2 {
-  margin-bottom: 22px;
-  color: var(--gold-light);
-  font-size: clamp(2.3rem, 5vw, 4rem);
-  line-height: 1.15;
-}
-
-h3 {
-  margin-bottom: 12px;
-  color: var(--gold-light);
-  font-size: 1.8rem;
-}
-
-.subtitle {
-  margin: 25px 0 35px;
-  color: var(--muted);
-  font-size: 0.85rem;
-  letter-spacing: 2px;
-}
-
-.section-intro {
-  max-width: 650px;
-  margin: 0 auto 40px;
-  color: var(--muted);
-}
-
-.message {
-  max-width: 560px;
-  margin-top: 30px;
-  color: var(--muted);
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.65rem;
-}
-
-/* ================================
-   Invitation Image
-================================ */
-
-.invitation-trigger {
-  display: block;
-  width: min(100%, 480px);
-  padding: 0;
-  border: 0;
-  background: transparent;
-  color: inherit;
-  font: inherit;
-  cursor: zoom-in;
-}
-
-.image-frame {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  border: 1px solid var(--gold);
-  border-radius: 16px;
-  box-shadow:
-    0 0 0 8px rgba(217, 182, 111, 0.04),
-    0 20px 70px rgba(0, 0, 0, 0.45);
-  isolation: isolate;
-}
-
-.invitation {
-  display: block;
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-  transform: scale(1);
-  transition:
-    transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1),
-    filter 0.6s ease;
-  will-change: transform;
-}
-
-.invitation-trigger:hover .invitation,
-.invitation-trigger:focus-visible .invitation {
-  transform: scale(1.05);
-  filter: brightness(1.08) saturate(1.08);
-}
-
-.image-shine {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: linear-gradient(
-    115deg,
-    transparent 20%,
-    rgba(255, 255, 255, 0.18) 48%,
-    transparent 70%
-  );
-  transform: translateX(-130%);
-  transition: transform 1s ease;
-}
-
-.invitation-trigger:hover .image-shine {
-  transform: translateX(130%);
-}
-
-.invitation-hint {
-  display: block;
-  margin-top: 12px;
-  color: var(--muted);
-  font-size: 0.72rem;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-
-/* ================================
-   Invitation Lightbox
-================================ */
-
-.invitation-modal {
+.invitation-intro {
   position: fixed;
   inset: 0;
   z-index: 9999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 24px;
-  background: rgba(5, 10, 25, 0.95);
-  backdrop-filter: blur(10px);
-}
-
-.invitation-modal[hidden] {
-  display: none;
-}
-
-.modal-image {
-  display: block;
-  width: auto;
-  max-width: min(100%, 900px);
-  max-height: 90vh;
-  height: auto;
-  object-fit: contain;
-  border-radius: 12px;
-  box-shadow: 0 20px 80px rgba(0, 0, 0, 0.5);
-  animation: invitationOpen 0.3s ease-out;
-}
-
-.modal-close {
-  position: absolute;
-  top: 20px;
-  right: 24px;
-  z-index: 2;
-  width: 44px;
-  height: 44px;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  border-radius: 50%;
-  background: rgba(0, 0, 0, 0.35);
-  color: white;
-  font-size: 2rem;
-  line-height: 1;
-  cursor: pointer;
-}
-
-.modal-close:hover {
-  background: rgba(255, 255, 255, 0.15);
-}
-
-body.modal-open {
+  display: grid;
+  place-items: center;
   overflow: hidden;
+  background:
+    radial-gradient(circle at center, rgba(184, 145, 72, 0.12), transparent 35%),
+    #071426;
+  transition:
+    opacity 1s ease,
+    visibility 1s ease;
 }
 
-@keyframes invitationOpen {
-  from {
-    opacity: 0;
-    transform: scale(0.94);
-  }
+.invitation-intro.is-opening {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
 
+.intro-glow {
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212, 175, 92, 0.12), transparent 70%);
+  animation: introGlow 5s ease-in-out infinite;
+}
+
+.intro-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 24px;
+}
+
+.intro-label {
+  margin-bottom: 32px;
+  color: #d4af5c;
+  font-size: 0.7rem;
+  letter-spacing: 0.35em;
+  font-weight: 600;
+}
+
+.envelope {
+  position: relative;
+  width: min(82vw, 390px);
+  aspect-ratio: 1.5;
+  margin: auto;
+  perspective: 1000px;
+  filter: drop-shadow(0 25px 45px rgba(0, 0, 0, 0.45));
+}
+
+.envelope-back,
+.envelope-front,
+.envelope-flap,
+.envelope-card {
+  position: absolute;
+  inset: 0;
+  border-radius: 5px;
+}
+
+.envelope-back {
+  background: linear-gradient(145deg, #142c49, #09192d);
+  border: 1px solid rgba(212, 175, 92, 0.5);
+}
+
+.envelope-card {
+  inset: 8% 7%;
+  z-index: 1;
+  padding: 22px 12px;
+  background: #f8f2e7;
+  color: #12243b;
+  transform: translateY(0);
+  transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.envelope-card h1 {
+  margin: 4px 0;
+  font-family: Georgia, serif;
+  font-size: clamp(1.5rem, 6vw, 2.5rem);
+  font-weight: 400;
+}
+
+.envelope-card span {
+  color: #b08a3c;
+  font-family: Georgia, serif;
+  font-size: 1.3rem;
+}
+
+.mini-label,
+.mini-date {
+  color: #9a7838;
+  font-size: 0.55rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.envelope-flap {
+  z-index: 3;
+  transform-origin: top center;
+  background: linear-gradient(145deg, #1b395c, #0c2038);
+  clip-path: polygon(0 0, 100% 0, 50% 58%);
+  border-top: 1px solid rgba(212, 175, 92, 0.5);
+  transition: transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.envelope-front {
+  z-index: 4;
+  background: linear-gradient(135deg, #102944, #081a30);
+  clip-path: polygon(0 0, 50% 58%, 100% 0, 100% 100%, 0 100%);
+  border: 1px solid rgba(212, 175, 92, 0.35);
+}
+
+.wax-seal {
+  position: absolute;
+  z-index: 5;
+  left: 50%;
+  top: 52%;
+  width: 72px;
+  height: 72px;
+  transform: translate(-50%, -50%);
+  border: 2px solid #e4c477;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #e4c477, #9d702b);
+  color: #14243a;
+  font-family: Georgia, serif;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow:
+    0 0 0 6px rgba(212, 175, 92, 0.12),
+    0 0 30px rgba(212, 175, 92, 0.3);
+  animation: sealPulse 2.5s ease-in-out infinite;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.wax-seal:hover {
+  transform: translate(-50%, -50%) scale(1.08);
+  box-shadow:
+    0 0 0 10px rgba(212, 175, 92, 0.15),
+    0 0 45px rgba(212, 175, 92, 0.55);
+}
+
+.envelope.is-open .envelope-flap {
+  transform: rotateX(180deg);
+  z-index: 0;
+}
+
+.envelope.is-open .envelope-card {
+  transform: translateY(-48%);
+}
+
+.envelope.is-open .wax-seal {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.intro-hint {
+  margin-top: 34px;
+  color: rgba(248, 242, 231, 0.65);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  animation: hintFade 2s ease-in-out infinite alternate;
+}
+
+@keyframes introGlow {
+  0%, 100% {
+    transform: scale(0.95);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+}
+
+@keyframes sealPulse {
+  0%, 100% {
+    box-shadow:
+      0 0 0 6px rgba(212, 175, 92, 0.12),
+      0 0 30px rgba(212, 175, 92, 0.3);
+  }
+  50% {
+    box-shadow:
+      0 0 0 12px rgba(212, 175, 92, 0.06),
+      0 0 50px rgba(212, 175, 92, 0.6);
+  }
+}
+
+@keyframes hintFade {
+  from {
+    opacity: 0.45;
+  }
   to {
     opacity: 1;
-    transform: scale(1);
   }
 }
 
-/* ================================
-   Madurai Celebration
-================================ */
+@media (max-width: 600px) {
+  .intro-label {
+    letter-spacing: 0.2em;
+  }
 
-.madurai-events {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  align-items: stretch;
-  gap: 24px;
-  width: min(100%, 1000px);
-  margin: 45px auto 0;
+  .wax-seal {
+    width: 64px;
+    height: 64px;
+  }
+
+  .envelope-card {
+    padding: 15px 8px;
+  }
 }
-
-.madurai-events .event-card {
-  height: 100%;
-}
-
-/* ================================
-   Event Cards
-================================ */
-
-.event-card {
-  position: relative;
-  width: 100%;
-  max-width: 650px;
-  margin: 0 auto;
-  padding: 35px 25px;
-  border: 1px solid rgba(217, 182, 111, 0.45);
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.04);
-  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
-}
-
-.event-number {
-  display: inline-block;
-  margin-bottom: 12px;
-  color: var(--gold);
-  font-size: 0.75rem;
-  letter-spacing: 2px;
-}
-
-.event-label {
-  color: var(--gold);
-  font-size: 0.75rem;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-
-.event-card h3 {
-  margin: 8px 0;
-}
-
-.event-card p:not(.event-label):not(.venue):not(.event-number) {
-  color: var(--muted);
-}
-
-.venue {
-  margin-bottom: 15px;
-  color: var(--gold-light);
-  font-weight: 600;
-}
-
-/* ================================
-   Location Cards
-================================ */
-
-.location-card {
-  width: min(100%, 850px);
-  margin: 35px auto 0;
-  padding: 45px 25px;
-  border: 1px solid rgba(217, 182, 111, 0.5);
-  border-radius: 20px;
-  background: linear-gradient(
-    145deg,
-    rgba(217, 182, 111, 0.1),
-    rgba(255, 255, 255, 0.03)
-  );
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
-}
-
-.location-icon {
-  margin-bottom: 12px;
-  color: var(--gold);
-  font-size: 3rem;
-}
-
-.location-note {
-  color: var(--muted);
-  font-size: 0.85rem;
-}
-
-.map-button {
-  display: inline-block;
-  margin-top: 25px;
-  padding: 13px 24px;
-  border: 1px solid var(--gold);
-  border-radius: 30px;
-  color: var(--gold-light);
-  text-decoration: none;
-  font-size: 0.8rem;
-  letter-spacing: 1px;
-  transition: all 0.3s ease;
-}
-
-.map-button:hover,
-.map-button:focus-visible {
-  background: var(--gold);
-  color: var(--navy);
-}
-
-/* ================================
-   Countdown
-================================ */
-
-.countdown {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 18px;
-  width: min(100%, 760px);
-  margin: 45px auto 0;
-}
-
-.countdown-box {
-  padding: 25px 12px;
-  border: 1px solid rgba(217, 182, 111, 0.5);
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.04);
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
-}
-
-.countdown-box span {
-  display: block;
-  color: var(--gold-light);
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(2.4rem, 6vw, 4.2rem);
-  font-weight: 600;
-  line-height: 1;
-}
-
-.countdown-box small {
-  display: block;
-  margin-top: 12px;
-  color: var(--muted);
-  font-size: 0.7rem;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-
-.completion-message {
-  max-width: 720px;
-  margin: 45px auto 0;
-  padding: 35px 25px;
-  border: 1px solid var(--gold);
-  border-radius: 18px;
-  background: rgba(217, 182, 111, 0.08);
-}
-
-.completion-message p {
-  margin-top: 15px;
-  color: var(--muted);
-}
-
-.completion-message strong {
-  color: var(--gold-light);
-}
-
-/* ================================
-   Bangalore Celebration
-================================ */
-
-.reception-section {
-  background: linear-gradient(
-    180deg,
-    rgba(16, 45, 85, 0.8),
-    rgba(6, 21, 47, 0.4)
-  );
-}
-
-.reception-section > .event-card {
-  width: min(100%, 850px);
-  max-width: 850px;
-}
-
-/* ================================
-   Our Story
-================================ */
-
-.story p {
-  max-width: 700px;
-  margin: 0 auto;
-  color: var(--muted);
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.55rem;
-  line-height: 1.6;
-}
-
-/* ================================
-   Scroll Reveal
-================================ */
-
-.reveal {
-  opacity: 0;
-  transform: translateY(35px);
-  transition:
-    opacity 0.9s ease,
-    transform 0.9s ease;
-}
-
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ================================
-   Footer
-================================ */
-
-footer {
-  padding: 35px 20px;
-  border-top: 1px solid rgba(217, 182, 111, 0.25);
-  color: var(--gold);
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.4rem;
-  background: #041027;
-}
-
-/* ================================
-   Accessibility
-================================ */
 
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    scroll-behavior: auto !important;
-    transition-duration: 0.01ms !important;
-    animation-duration: 0.01ms !important;
-  }
-
-  .reveal {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-/* ================================
-   Responsive Mobile Layout
-================================ */
-
-@media (max-width: 700px) {
-  .navbar {
-    align-items: center;
-    flex-direction: column;
-    padding: 14px 10px;
-    gap: 10px;
-  }
-
-  .nav-links {
-    justify-content: center;
-    gap: 12px 16px;
-  }
-
-  .nav-links a {
-    font-size: 0.62rem;
-  }
-
-  .hero,
-  .event-section,
-  .countdown-section,
-  .story {
-    padding: 75px 16px;
-  }
-
-  h1 {
-    font-size: clamp(3rem, 15vw, 5rem);
-  }
-
-  .madurai-events {
-    grid-template-columns: 1fr;
-    gap: 18px;
-  }
-
-  .event-card {
-    padding: 30px 20px;
-  }
-
-  .invitation-trigger {
-    width: 100%;
-    max-width: 480px;
-  }
-
-  .countdown {
-    gap: 8px;
-  }
-
-  .countdown-box {
-    padding: 20px 5px;
-  }
-
-  .countdown-box span {
-    font-size: 2.2rem;
-  }
-
-  .countdown-box small {
-    font-size: 0.55rem;
-    letter-spacing: 1px;
-  }
-
-  .message,
-  .story p {
-    font-size: 1.35rem;
-  }
-
-  .eyebrow {
-    letter-spacing: 2.5px;
-  }
-
-  .invitation-modal {
-    padding: 14px;
-  }
-
-  .modal-image {
-    max-width: 100%;
-    max-height: 82vh;
-  }
-
-  .modal-close {
-    top: 12px;
-    right: 12px;
+  .intro-glow,
+  .wax-seal,
+  .intro-hint {
+    animation: none;
   }
 }
