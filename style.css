@@ -1302,3 +1302,34 @@ body::before {
   pointer-events: none;
   z-index: -1;
 }
+/* G & R custom golden cursor */
+body,
+button,
+a {
+  cursor: url("assets/gr-cursor.png") 8 8, auto;
+}
+
+/* Golden glitter particles */
+.gold-glitter {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background: #f5c76b;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  box-shadow: 0 0 8px rgba(245, 199, 107, 0.9);
+  animation: glitter-burst 800ms ease-out forwards;
+}
+
+@keyframes glitter-burst {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(var(--x), var(--y)) scale(0.2);
+  }
+}
