@@ -1298,7 +1298,7 @@ body::before {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  opacity: 0.50;
+  opacity: 0.90;
   pointer-events: none;
   z-index: -1;
 }
