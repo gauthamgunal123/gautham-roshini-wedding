@@ -620,11 +620,6 @@ if (!prefersReducedMotion) {
     { passive: true }
   );
 }
-if (entry.isIntersecting) {
-  entry.target.classList.add("visible");
-} else {
-  entry.target.classList.remove("visible");
-}
 
 const weddingMusic = document.getElementById("wedding-music");
 const musicToggle = document.getElementById("music-toggle");
