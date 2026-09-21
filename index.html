@@ -46,8 +46,14 @@
   <source src="assets/Anbil%20Avan.mp3" type="audio/mpeg">
 </audio>
 
-<button id="music-toggle" aria-label="Mute music" title="Mute music">
-  🔊
+<button
+  class="music-toggle"
+  id="music-toggle"
+  type="button"
+  aria-label="Pause wedding music"
+  aria-pressed="true"
+>
+  ♪
 </button>
   
   <!-- Floating golden particles -->
@@ -662,30 +668,6 @@ musicToggle.addEventListener("click", toggleWeddingMusic);
 openInvitationButton.addEventListener("click", function () {
   startWeddingMusic();
 });
-
-  <script>
-  // Your existing music-player code goes here
-
-
-  // Paste the mute/unmute code below it
-  const musicToggle = document.getElementById("music-toggle");
-
-  if (musicToggle && backgroundMusic) {
-    musicToggle.addEventListener("click", function () {
-      backgroundMusic.muted = !backgroundMusic.muted;
-
-      if (backgroundMusic.muted) {
-        musicToggle.textContent = "🔇";
-        musicToggle.setAttribute("aria-label", "Unmute music");
-        musicToggle.setAttribute("title", "Unmute music");
-      } else {
-        musicToggle.textContent = "🔊";
-        musicToggle.setAttribute("aria-label", "Mute music");
-        musicToggle.setAttribute("title", "Mute music");
-      }
-    });
-  }
-</script>
   </script>
 
 </body>
