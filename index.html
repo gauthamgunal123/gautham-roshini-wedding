@@ -543,9 +543,15 @@ if (invitationIntro && envelope && openInvitationButton) {
   envelope.classList.add("is-open");
 
     setTimeout(function () {
-      invitationIntro.classList.add("is-opening");
-      document.body.classList.remove("modal-open");
-    }, 1200);
+  invitationIntro.classList.add("is-opening");
+  document.body.classList.remove("modal-open");
+
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: "instant"
+  });
+}, 1200);
 
     setTimeout(function () {
       invitationIntro.remove();
