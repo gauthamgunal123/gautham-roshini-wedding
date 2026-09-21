@@ -1306,7 +1306,7 @@ body::before {
 body,
 button,
 a {
-  cursor: url("assets/gr-cursor.png") 8 8, auto;
+  cursor: url("./assets/gr-cursor.png") 8 8, auto !important;
 }
 
 /* Golden glitter particles */
