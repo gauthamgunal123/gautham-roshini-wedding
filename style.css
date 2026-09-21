@@ -155,12 +155,20 @@
 }
 
 .envelope.is-open .envelope-card {
-  transform: translateY(-48%);
+  transform: translateY(-115%);
+  z-index: 5;
+}
+
+.envelope.is-open .envelope-front {
+  transform: translateY(100%);
+  transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .envelope.is-open .wax-seal {
   opacity: 0;
+  transform: translate(-50%, -50%) scale(0.65);
   pointer-events: none;
+  transition: opacity 0.35s ease, transform 0.35s ease;
 }
 
 .intro-hint {
