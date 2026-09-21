@@ -1284,3 +1284,21 @@ footer {
   overflow: hidden;
   z-index: 9999;
 }
+/* Madurai–Bangalore gold outline background */
+body {
+  position: relative;
+  isolation: isolate;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("assets/madurai-bangalore-outline.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: -1;
+}
