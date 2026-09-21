@@ -668,6 +668,40 @@ musicToggle.addEventListener("click", toggleWeddingMusic);
 openInvitationButton.addEventListener("click", function () {
   startWeddingMusic();
 });
+
+    /* Golden glitter burst on click */
+
+document.addEventListener("click", function (event) {
+  const glitterCount = 24;
+
+  for (let i = 0; i < glitterCount; i++) {
+    const glitter = document.createElement("span");
+
+    glitter.className = "gold-glitter";
+
+    glitter.style.left = event.clientX + "px";
+    glitter.style.top = event.clientY + "px";
+
+    const angle = Math.random() * Math.PI * 2;
+    const distance = 40 + Math.random() * 90;
+
+    const x = Math.cos(angle) * distance;
+    const y = Math.sin(angle) * distance;
+
+    glitter.style.setProperty("--x", x + "px");
+    glitter.style.setProperty("--y", y + "px");
+
+    const size = 3 + Math.random() * 5;
+    glitter.style.width = size + "px";
+    glitter.style.height = size + "px";
+
+    document.body.appendChild(glitter);
+
+    setTimeout(function () {
+      glitter.remove();
+    }, 800);
+  }
+});
   </script>
 
 </body>
