@@ -1275,3 +1275,12 @@ footer {
   font-family: "Playfair Display", serif;
   font-size: 20px;
 }
+/* Prevent scrolling on the invitation opening screen */
+#invitation-intro {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100dvh;
+  overflow: hidden;
+  z-index: 9999;
+}
