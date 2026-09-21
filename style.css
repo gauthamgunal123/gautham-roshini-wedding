@@ -1226,3 +1226,52 @@ footer {
     animation: none;
   }
 }
+/* =================================
+   GALLERY — COMING SOON DESIGN
+================================= */
+
+.gallery-section {
+  padding: 90px 20px;
+  text-align: center;
+  background: linear-gradient(
+    135deg,
+    #071a35,
+    #0d2748,
+    #071a35
+  );
+}
+
+.gallery-coming-soon {
+  max-width: 650px;
+  margin: 40px auto 0;
+  padding: 60px 30px;
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: 0 0 40px rgba(212, 175, 55, 0.08);
+}
+
+.gallery-icon {
+  font-size: 42px;
+  color: #d4af37;
+  margin-bottom: 20px;
+}
+
+.gallery-coming-soon h3 {
+  color: #f5d77a;
+  font-size: 30px;
+  margin-bottom: 18px;
+}
+
+.gallery-coming-soon p {
+  max-width: 480px;
+  margin: 0 auto 24px;
+  line-height: 1.8;
+  opacity: 0.85;
+}
+
+.gallery-coming-soon span {
+  color: #d4af37;
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+}
