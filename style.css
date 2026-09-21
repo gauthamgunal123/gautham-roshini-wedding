@@ -51,7 +51,7 @@
 
 .envelope {
   position: relative;
-  width: min(82vw, 390px);
+  width: min(88vw, 450px);
   aspect-ratio: 1.5;
   margin: auto;
   perspective: 1000px;
